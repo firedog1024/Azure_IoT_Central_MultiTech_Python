@@ -1,4 +1,4 @@
-# Azure IoT Central sample code for MultiTech Conduit Gateway
+# Azure IoT Central sample Python code for MultiTech Conduit Gateway
 
 ## What is this?
 

@@ -32,6 +32,21 @@ Paho:
 pip install paho-mqtt
 ```
 
+## Setting up IoT Central application
+
+To connect the device to Azure IoT Central you will need to provision an IoT Central application. This is free for seven days but if you already have signed up for an Azure subscription and want to use pay as you go IoT Central is free as long as you have no more than five devices and do not exceed 1MB per month of data.
+
+Go to https://apps.azureiotcentral.com/ to create an application (you will need to sign in with a Microsoft account identity you may already have one if you use Xbox, office365, Windows 10, or other Microsoft services).
+
+Choose Trial or Pay-As-You-Go.
+Select the Sample DevKits template (middle box)
+Provide an application name and URL domain name
+If you select Pay-As-You-Go you will need to select your Azure subscription and select a region to install the application into. This information is not needed for Trial.
+Click "Create"
+You should now have an IoT Central application provisioned so lets add a real device. Click Device Explorer on the left. You will now see three templates in the left hand panel (MXChip, Raspberry Pi, Windows 10 IoT Core). We are going to use the MXChip template for this exercise to prevent having to create a new template. Click "MXChip" and click the "+V" icon on the toolbar, this will present a drop down where we click "Real" to add a new physical device. Give a name to your device and click "Create".
+
+You now have a device in IoT Central that can be connected to from the MultiTech Conduit device. Proceed to wiring and configuration.
+
 ## Config the code
 
 We need to copy some values from the IoT Central device into the config.py file so it can connect to IoT Central.
@@ -79,6 +94,8 @@ From the SSH or serial terminal cd to the sd card and directory you created and 
 ```sh
 python main.py
 ```
+
+You should see the results of sending data to IoT Central in the terminal and shortly data should start to appear in your IoT Central application.  Note, only temerature data is being sent so be sure to click the temperature eyeball in the IoT Central device explorer measurements screen.
 
 ## What Now?
 

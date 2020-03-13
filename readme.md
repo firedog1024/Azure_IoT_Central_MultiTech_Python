@@ -1,12 +1,13 @@
-# Azure IoT Central sample Python code for MultiTech Conduit Gateway
+# Azure IoT Central sample Python code for MultiTech Conduit Gateway or any other python system unable to use the official Azure IoT Python SDK
 
 ## What is this?
 
-Sample code to show how to get the MultiTech Conduit Gateway Hardware (http://www.multitech.net/developer/products/multiconnect-conduit-platform/) to talk to Azure IoT Central (https://apps.azureiotcentral.com/).
+Sample code to show how to get the MultiTech Conduit Gateway Hardware (http://www.multitech.net/developer/products/multiconnect-conduit-platform/) to talk to Azure IoT Central (https://apps.azureiotcentral.com/).  Will also work for
+any other python system unable to use the official Azure IoT Python SDK.
 
 ## Features
 
-* Works with MultiTech Conduit gateway hardware
+* Works with MultiTech Conduit gateway hardware and others
 * Uses simple MQTT library to communicate to Azure IoT Central
 * Simple code base designed to illustrate how the code works and encourage hacking (~300 lines of core code w/ comments)
 * Supports the use of Azure IoT Device Provisioning Service (DPS) for registering the device in IoT Central
@@ -18,9 +19,13 @@ Sample code to show how to get the MultiTech Conduit Gateway Hardware (http://ww
 
 ## Dependencies:
 
+For Multitech:
+
 You need to install mlinux 4.0 onto the MultiTech Conduit box so that you have a version of Python 2.7 that supports SSL (http://www.multitech.net/developer/software/mlinux/upgrading-mlinux/).
 
-Install the following dependencies on your development machine using Python 2.7 pip.
+Start here for other systems:
+
+Install the following dependencies on your development machine using Python 2.7 pip.  Also works fine with Python 3+
 
 Httplib2:
 ```sh

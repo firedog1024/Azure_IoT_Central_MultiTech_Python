@@ -1,8 +1,11 @@
 # Copyright (c) Microsoft. All rights reserved.
 # Licensed under the MIT license.
 
+import sys
 import httplib2 as http
 import urllib
+if sys.version_info[0] >= 3:
+  import urllib.parse
 import json
 import hashlib
 import hmac
@@ -67,7 +70,10 @@ def getConnectionString(deviceId, mkey, scopeId, isMasterKey, callback, modelId=
 
   sr = scopeId + "%2fregistrations%2f" + deviceId
   sigNoEncode = computeDrivedSymmetricKey(deviceKey, sr + "\n" + str(expires))
-  sigEncoded = urllib.quote(sigNoEncode, safe='~()*!.\'')
+  if sys.version_info[0] < 3:
+    sigEncoded = urllib.quote(sigNoEncode, safe='~()*!.\'')
+  else:
+    sigEncoded = urllib.parse.quote(sigNoEncode, safe='~()*!.\'')
 
   authString = "SharedAccessSignature sr=" + sr + "&sig=" + sigEncoded + "&se=" + str(expires) + "&skn=registration"
   headers = {

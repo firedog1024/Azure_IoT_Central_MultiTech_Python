@@ -27,7 +27,7 @@ def computeDrivedSymmetricKey(secret, regId):
 
 
 def loopAssign(operationId, headers, deviceId, scopeId, deviceKey, callback):
-  uri = "https://global.azure-devices-provisioning.net/%s/registrations/%s/operations/%s?api-version=2018-09-01-preview" % (scopeId, deviceId, operationId)
+  uri = "https://global.azure-devices-provisioning.net/%s/registrations/%s/operations/%s?api-version=2019-03-31" % (scopeId, deviceId, operationId)
 
   target = urlparse(uri)
   method = 'GET'
@@ -58,7 +58,7 @@ def getConnectionString(deviceId, mkey, scopeId, isMasterKey, callback, modelId=
 
   body = ""
   if modelId:
-    body = "{\"registrationId\":\"%s\", \"data\":{\"iotcModelId\":\"%s\"}}" % (deviceId, modelId)
+    body = "{\"registrationId\":\"%s\", \"payload\":{\"iotcModelId\":\"%s\"}}" % (deviceId, modelId)
   else:
     body = "{\"registrationId\":\"%s\"}" % deviceId
 
@@ -84,7 +84,7 @@ def getConnectionString(deviceId, mkey, scopeId, isMasterKey, callback, modelId=
     "Authorization" : authString
   }
 
-  uri = "https://global.azure-devices-provisioning.net/%s/registrations/%s/register?api-version=2019-01-15" % (scopeId, deviceId)
+  uri = "https://global.azure-devices-provisioning.net/%s/registrations/%s/register?api-version=2019-03-31" % (scopeId, deviceId)
   target = urlparse(uri)
   method = 'PUT'
 
